@@ -58,7 +58,7 @@ namespace ArithmeticSimulatorV0
                 else
                     X++;
             }
-            labelProcentValue.Text = Math.Pow(O / (double)_problemList.Count * 100, 2).ToString();
+            labelProcentValue.Text = (O / (double)_problemList.Count * 100).ToString("F2");
         }
     }
 }

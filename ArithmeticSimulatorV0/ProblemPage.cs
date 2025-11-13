@@ -30,11 +30,18 @@ namespace ArithmeticSimulatorV0
             {
                 textBox1.Enabled = false;
                 textBox1.Text = _problemList[_indexNumber].UserAnswer;
+
+                buttonFinish.Enabled = true;
+            }
+            else
+            {
+                buttonFinish.Enabled = false;
             }
         }
         private void TextBoxColor()
         {
             if (_complet)
+            {
                 if (_problemList[_indexNumber].UserAnswer == _problemList[_indexNumber].Answer)
                 {
                     textBox1.BackColor = Color.LightGreen;
@@ -45,6 +52,7 @@ namespace ArithmeticSimulatorV0
                     textBox1.BackColor = Color.Coral;
                     textBox1.ForeColor = Color.White;
                 }
+            }
         }
         private void ChangeLabelNumber()
         {
@@ -111,6 +119,10 @@ namespace ArithmeticSimulatorV0
         {
             SaveAnswerAndClear();
             if (_indexNumber < _problemList.Count - 1) _indexNumber++;
+            if (_indexNumber == _problemList.Count - 1)
+            {
+                buttonFinish.Enabled = true;
+            }
             ChangeItem();
         }
 
@@ -208,6 +220,10 @@ namespace ArithmeticSimulatorV0
             {
                 e.Handled = true;
                 e.SuppressKeyPress = true;
+            }
+            if (e.KeyData == Keys.Enter)
+            {
+                buttonNext_Click(sender, e);
             }
         }
 
